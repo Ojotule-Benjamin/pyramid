@@ -1,11 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
+import { useFonts } from "expo-font";
+import colors from "./src/assets/colors/colors";
+import HelpAndSupportScreen from "./src/screens/HelpAndSupportScreen";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    poppinsSemiBold: require("./src/assets/fonts/Poppins-SemiBold.ttf"),
+    RobotoRegular: require("./src/assets/fonts/Roboto-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <HelpAndSupportScreen />
     </View>
   );
 }
@@ -13,8 +23,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.background,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
