@@ -70,41 +70,6 @@ const HelpAndSupportScreen: React.FC = () => {
 
       {/*questions cards */}
       <Card />
-
-      {/* <View>
-        <View style={styles.helpCenterQuestions}>
-          <Text style={styles.helpCenterText}>Top Questions</Text>
-          <Text style={styles.helpCenterText2}>View all</Text>
-        </View>
-
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          showsVerticalScrollIndicator={false}
-        >
-          {topQuestions.map(({ id, title, details }: TopQuestionItem) => (
-            <View
-              style={[
-                selected === id ? styles.cardContainer : styles.cardNotSelected,
-              ]}
-              key={id}
-            >
-              <View style={styles.cardTop}>
-                <Text style={styles.cardTitle}>{title}</Text>
-                <Pressable onPress={() => setSelected(id)}>
-                  {selected === id ? (
-                    <Feather name="minus" size={24} color="#DF1525" />
-                  ) : (
-                    <Feather name="plus" size={24} color="#DF1525" />
-                  )}
-                </Pressable>
-              </View>
-              {selected === id ? (
-                <Text style={styles.cardDetails}>{details}</Text>
-              ) : null}
-            </View>
-          ))}
-        </ScrollView>
-      </View> */}
     </SafeAreaView>
   );
 };
