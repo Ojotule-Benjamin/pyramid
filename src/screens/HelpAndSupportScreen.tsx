@@ -10,11 +10,11 @@ import {
 } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
-import { Ionicons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
 import { DataItem, data } from "../../data";
 import Card from "../components/Card";
 import search from "../assets/img/search.png";
+import Header from "../components/Header";
+import { platform } from "os";
 
 const HelpAndSupportScreen: React.FC = () => {
   // Render the category item
@@ -41,12 +41,8 @@ const HelpAndSupportScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.helpContainer}>
-      <View style={styles.helpCenterWrapper}>
-        <Ionicons name="arrow-back-sharp" size={24} color="black" />
-        <Text style={styles.helpCenterText}>Help center</Text>
-        <Feather name="search" size={24} color="black" />
-      </View>
-
+      {/* header */}
+      <Header />
       <Text style={styles.helpCenterTitle}>How can we help you?</Text>
 
       <View style={styles.helpCenterKeyword}>
@@ -68,7 +64,7 @@ const HelpAndSupportScreen: React.FC = () => {
         />
       </View>
 
-      {/*questions cards */}
+      {/*questions accordion */}
       <Card />
     </SafeAreaView>
   );
@@ -80,20 +76,8 @@ const styles = StyleSheet.create({
   helpContainer: {
     flex: 1,
     width: "100%",
+    backgroundColor: "#FFFFFF",
     paddingTop: Platform.OS === "android" ? 50 : 0,
-  },
-  helpCenterWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 24,
-  },
-  helpCenterText: {
-    fontFamily: "poppinsSemiBold",
-    fontWeight: "600",
-    fontSize: 22,
-    color: colors.textDark,
-    textAlign: "center",
   },
   helpCenterTitle: {
     marginTop: 31,
@@ -104,6 +88,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   helpCenterKeyword: {
+    //borderWidth: 1,
     marginTop: 25,
     paddingLeft: 18,
     marginHorizontal: 24,
@@ -111,7 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 8,
-    backgroundColor: colors.background,
+    backgroundColor: "#F5F5F5",
   },
   helpCenterSearch: {
     paddingHorizontal: 17,

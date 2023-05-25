@@ -1,7 +1,3 @@
-// const gettingStartedImg = require("./src/assets/img/notification.png");
-// const invest = require("./src/assets/img/questions.png");
-// const payment = require("./src/assets/img/payment.png");
-
 export interface DataItem {
   id: number;
   question: string;
@@ -47,18 +43,18 @@ export const topQuestions: TopQuestionItem[] = [
     id: 2,
     title: "How to add a payment method by this app?",
     details:
-      "Open the Tradebase app to get started and follow the steps. Tradebase doesn’t charge a fee to create or maintain your Tradebase account.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus cursus dui vel vehicula.",
   },
   {
     id: 3,
     title: "What Time Does The Stock Market Open?",
     details:
-      "Open the Tradebase app to get started and follow the steps. Tradebase doesn’t charge a fee to create or maintain your Tradebase account.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus cursus dui vel vehicula.",
   },
   {
     id: 4,
     title: "Is The Stock Market Open On Weekends?",
     details:
-      "Open the Tradebase app to get started and follow the steps. Tradebase doesn’t charge a fee to create or maintain your Tradebase account.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus cursus dui vel vehicula.",
   },
 ];

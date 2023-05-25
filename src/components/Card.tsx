@@ -100,11 +100,11 @@ const styles = StyleSheet.create({
     color: colors.textDark,
   },
   cardDetails: {
-    width: 250,
+    width: 270,
     fontFamily: "RobotoRegular",
     fontSize: 14,
     fontWeight: "400",
     textAlign: "justify",
-    color: colors.textDark,
+    color: colors.textLightGray,
   },
 });
