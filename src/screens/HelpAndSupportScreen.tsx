@@ -45,7 +45,7 @@ const HelpAndSupportScreen: React.FC = () => {
       {/* header */}
       <Header />
       <ScrollView
-        //contentInsetAdjustmentBehavior="automatic"
+        contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.helpCenterTitle}>How can we help you?</Text>
