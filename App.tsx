@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import colors from "./src/assets/colors/colors";
 import HelpAndSupportScreen from "./src/screens/HelpAndSupportScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import RootNavigator from "./src/navigator/RootNavigator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -14,9 +16,9 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <HelpAndSupportScreen />
-    </View>
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
   );
 }
 

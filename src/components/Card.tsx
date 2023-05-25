@@ -2,45 +2,45 @@ import { StyleSheet, Text, ScrollView, Pressable, View } from "react-native";
 import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
-import { topQuestions, data, DataItem, TopQuestionItem } from "../../data";
+import { useNavigation } from "@react-navigation/native";
+import { topQuestions, TopQuestionItem } from "../../data";
 
 const Card = () => {
+  const navigation = useNavigation();
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
     <View>
       <View style={styles.helpCenterQuestions}>
         <Text style={styles.helpCenterText}>Top Questions</Text>
-        <Text style={styles.helpCenterText2}>View all</Text>
+        <Pressable onPress={() => navigation.navigate("ViewAllQuestions")}>
+          <Text style={styles.helpCenterText2}>View all</Text>
+        </Pressable>
       </View>
 
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        showsVerticalScrollIndicator={false}
-      >
-        {topQuestions.map(({ id, title, details }: TopQuestionItem) => (
-          <View
-            style={[
-              selected === id ? styles.cardContainer : styles.cardNotSelected,
-            ]}
-            key={id}
-          >
-            <View style={styles.cardTop}>
-              <Text style={styles.cardTitle}>{title}</Text>
-              <Pressable onPress={() => setSelected(id)}>
-                {selected === id ? (
-                  <Feather name="minus" size={24} color="#DF1525" />
-                ) : (
-                  <Feather name="plus" size={24} color="#DF1525" />
-                )}
-              </Pressable>
-            </View>
-            {selected === id ? (
-              <Text style={styles.cardDetails}>{details}</Text>
-            ) : null}
+      {topQuestions.map(({ id, title, details }: TopQuestionItem) => (
+        <Pressable
+          onPress={() => setSelected(id)}
+          style={[
+            selected === id ? styles.cardContainer : styles.cardNotSelected,
+          ]}
+          key={id}
+        >
+          <View style={styles.cardTop}>
+            <Text style={styles.cardTitle}>{title}</Text>
+            <Pressable onPress={() => setSelected(id)}>
+              {selected === id ? (
+                <Feather name="minus" size={24} color="#DF1525" />
+              ) : (
+                <Feather name="plus" size={24} color="#DF1525" />
+              )}
+            </Pressable>
           </View>
-        ))}
-      </ScrollView>
+          {selected === id ? (
+            <Text style={styles.cardDetails}>{details}</Text>
+          ) : null}
+        </Pressable>
+      ))}
     </View>
   );
 };
@@ -50,7 +50,7 @@ export default Card;
 const styles = StyleSheet.create({
   helpCenterQuestions: {
     marginHorizontal: 24,
-    marginBottom: 16,
+    marginBottom: 18,
     height: 26,
     flexDirection: "row",
     alignItems: "center",
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     height: 139,
     marginHorizontal: 24,
     padding: 16,
-    marginBottom: 10,
+    marginBottom: 16,
     borderWidth: 1,
     borderColor: "#D9D9D9",
     borderRadius: 8,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     height: 79,
     marginHorizontal: 24,
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 16,
     borderWidth: 1,
     borderColor: "#D9D9D9",
     borderRadius: 8,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     color: colors.textDark,
   },
   cardDetails: {
-    width: 270,
+    paddingRight: 40,
     fontFamily: "RobotoRegular",
     fontSize: 14,
     fontWeight: "400",

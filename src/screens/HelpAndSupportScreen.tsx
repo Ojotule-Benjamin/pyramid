@@ -7,6 +7,7 @@ import {
   TextInput,
   FlatList,
   SafeAreaView,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
@@ -43,29 +44,34 @@ const HelpAndSupportScreen: React.FC = () => {
     <SafeAreaView style={styles.helpContainer}>
       {/* header */}
       <Header />
-      <Text style={styles.helpCenterTitle}>How can we help you?</Text>
+      <ScrollView
+        //contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.helpCenterTitle}>How can we help you?</Text>
 
-      <View style={styles.helpCenterKeyword}>
-        <Image source={search} />
-        <TextInput
-          style={styles.helpCenterSearch}
-          placeholder="Enter your Keyword"
-        />
-      </View>
+        <View style={styles.helpCenterKeyword}>
+          <Image source={search} />
+          <TextInput
+            style={styles.helpCenterSearch}
+            placeholder="Enter your Keyword"
+          />
+        </View>
 
-      {/* category list */}
-      <View style={{ marginBottom: 30 }}>
-        <FlatList
-          data={data}
-          renderItem={renderCategoryItem}
-          keyExtractor={(item) => item.id.toString()}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
+        {/* category list */}
+        <View style={{ marginBottom: 30 }}>
+          <FlatList
+            data={data}
+            renderItem={renderCategoryItem}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
 
-      {/*questions accordion */}
-      <Card />
+        {/*questions accordion */}
+        <Card />
+      </ScrollView>
     </SafeAreaView>
   );
 };
